@@ -1,7 +1,5 @@
 import java.util.Scanner;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import java.awt.Rectangle;
 import java.awt.Color;
@@ -20,7 +18,16 @@ public class InteractiveNov {
 
 
 
+
     public static void main(String[] args) {
+       HappyLevel charMood = new HappyLevel(0, 0);
+       charMood.getMood();
+        System.out.println("CURRENT MOOD LEVEL: "+ charMood.mood);
+
+
+
+
+
 
         /*This program will give the player/user situations in the story
          * The user should prepare to make choices all the way through the game
@@ -101,6 +108,7 @@ public class InteractiveNov {
             System.out.println("As you got into the train, you bumped into \n "
                     + "a man. The man gave you an ugly glance and returned \n "
                     + "to watching his phone");
+
             System.out.println("*TUTORIAL* The game will also ask \n"
                     + "you to type in the word. This is designed \n"
                     + "for player immersion. Typing the actual words \n"
@@ -137,7 +145,7 @@ public class InteractiveNov {
 
             }
             if(input == 2){
-                System.out.println("You walked to work avaoiding rush hour. \n"
+                System.out.println("You walked to work avoiding rush hour. \n"
                         + "That was lucky. Your STRESS COUNT was reduced by 1!");
                 stressCount -= 1;
                 System.out.println("SC" + stressCount);
@@ -175,6 +183,8 @@ public class InteractiveNov {
         input = s.nextInt();
 
         if (input == 0) {
+
+
             System.out.println("You look up and see Maggie. \n "
                     + "Maggie is an old friend who also lives in the city. \n "
                     + "She was romantically involved with your best \n "
@@ -219,7 +229,7 @@ public class InteractiveNov {
                     + "the better! You would like to buy another lake house and a boat. \n"
                     + "So, let's go with the Chinese deal!");
             System.out.println("[1] We can't lose what we started just because \n "
-                    + "of money, our business is too important. The Japenese deal.");
+                    + "of money, our business is too important. The Japanese deal.");
 
 
         }while(input != 0 && stressCount >= 1);
@@ -232,8 +242,11 @@ public class InteractiveNov {
         }
 
         if(input == 1){
+
+
+
             System.out.println("John thinks its a bad choice");
-            System.out.println("You were dreading this desision all week, and \n "
+            System.out.println("You were dreading this decision all week, and \n "
                     + "you knew John would be angry over this choice.");
             System.out.println("Since you and John disagree, the committee has to take \n "
                     + "a hard vote. This may get messy. Not to mention on a personal level.");
@@ -258,12 +271,37 @@ public class InteractiveNov {
                 + "have to go through the committee. He asks you to at least sleep on it \n "
                 + "Will you: 'rethink' or 'sure': ");
 
+
+
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
         if(input.equals("rethink")){
+
+
             System.out.println("John says good thinking and walks away");
+            JFrame window = new JFrame();
+            window.setSize(1000, 1000);
+            window.setTitle("You made John happy");
+            //window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            window.setVisible(true);
+            Rectangle rect = new Rectangle(100, 100, 300, 100);
+            window.getContentPane().setBackground(Color.red);
+            window.setLayout(null);
+            con = window.getContentPane();
+
+            titleNamePanel = new JPanel();
+            titleNamePanel.setBounds(100,  100,  600, 150);
+            titleNamePanel.setBackground(Color.red);
+            titleNameLabel = new JLabel("John's happiness went up");
+
+
+            titleNameLabel.setForeground(Color.white);
+            titleNameLabel.setFont(titleFont);
+            titleNamePanel.add(titleNameLabel);
+            con.add(titleNamePanel);
         }
         if(input.equals("sure")){
+
             System.out.println("John says that I am making the \n"
                     + "biggest mistake of my life, he almost looks shook. \n"
                     + " He is furious and storms off");
@@ -411,6 +449,20 @@ public class InteractiveNov {
 
     }
     public static void escapedGrasp(){
+         JTextArea usergui;
+         JFrame userframe;
+         JLabel uselabel;
+
+         usergui = new JTextArea(30, 50);
+         userframe = new JFrame("TAKE A LOOK");
+         uselabel = new JLabel("Here is the label");
+         uselabel.setVisible(true);
+         uselabel.setText("HERE is the 2nd label");
+         userframe.setVisible(true);
+         usergui.setVisible(true);
+         Font bigFont = new Font("sanserif", Font.BOLD, 24);
+         usergui.setFont(bigFont);
+
         System.out.println("You rush over to John who is at the bar. \n "
                 + "He sees that there is fiery in your eyes. You grab \n "
                 + "him by his $2,000 shirt and force him into the hallway \n "
@@ -829,6 +881,29 @@ public class InteractiveNov {
             System.out.println("You have to end this");
             zeroPerc();
 
+            //New content (1/18/19)
+            //New GUI's
+            JFrame window = new JFrame();
+            window.setSize(1000, 1000);
+            window.setTitle("Story Results");
+            //window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            window.setVisible(true);
+            Rectangle rect1 = new Rectangle(100, 100, 300, 100);
+            window.getContentPane().setBackground(Color.lightGray);
+            window.setLayout(null);
+            con = window.getContentPane();
+
+            titleNamePanel = new JPanel();
+            titleNamePanel.setBounds(100,  100,  600, 150);
+            titleNamePanel.setBackground(Color.red);
+            titleNameLabel = new JLabel("--5%--10%---20%---30%----50% \n" +
+                    "----70%--80%--100%");
+
+            titleNameLabel.setForeground(Color.white);
+            titleNameLabel.setFont(titleFont);
+            titleNamePanel.add(titleNameLabel);
+            con.add(titleNamePanel);
+
 
         }
         if(input.equals("dont")){
@@ -1205,6 +1280,31 @@ public class InteractiveNov {
         titleNamePanel.add(titleNameLabel);
         con.add(titleNamePanel);
 
+
+        //New content (1/18/19)
+        //New GUI's
+        JFrame window1 = new JFrame();
+        window.setSize(1000, 1000);
+        window.setTitle("Story Results");
+        //window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setVisible(true);
+        Rectangle rect1 = new Rectangle(100, 100, 300, 100);
+        window.getContentPane().setBackground(Color.lightGray);
+        window.setLayout(null);
+        con = window.getContentPane();
+
+        titleNamePanel = new JPanel();
+        titleNamePanel.setBounds(100,  100,  600, 150);
+        titleNamePanel.setBackground(Color.red);
+        titleNameLabel = new JLabel("-------\n" +
+                "                         ----->--");
+
+        titleNameLabel.setForeground(Color.white);
+        titleNameLabel.setFont(titleFont);
+        titleNamePanel.add(titleNameLabel);
+        con.add(titleNamePanel);
+
     }
+
 
 }
