@@ -1,12 +1,31 @@
+import java.awt.*;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import javax.swing.*;
 
-import java.awt.Rectangle;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Font;
+import java.time.LocalDateTime;
 
-public class InteractiveNov {
+public class InteractiveNov extends Stats{
+
+    public void paintMenu(Graphics g){
+        g.setColor(Color.CYAN);
+        g.fillRect(20, 50, 100, 100);
+        System.out.println(g);
+    }
+    public void paintComponent(Graphics g){
+        JButton startNewGame = new JButton("Start Game");
+        JButton load = new JButton("Load");
+        startNewGame.add(startNewGame);
+        load.add(load);
+
+    }
+
+
+
+
+
+
+
 
     JFrame window;
     static Container con;
@@ -23,6 +42,8 @@ public class InteractiveNov {
        HappyLevel charMood = new HappyLevel(0, 0);
        charMood.getMood();
         System.out.println("CURRENT MOOD LEVEL: "+ charMood.mood);
+
+
 
 
 
@@ -104,6 +125,14 @@ public class InteractiveNov {
         }
         if (input == 1) {
 
+            System.out.println("You look at your watch");
+
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
+            System.out.println(dtf.format(now));
+            System.out.println("Default Level:" + DEFAULT_LEVEL);
+
+
             System.out.println("You continued to wait and finally got on the train.");
             System.out.println("As you got into the train, you bumped into \n "
                     + "a man. The man gave you an ugly glance and returned \n "
@@ -131,11 +160,52 @@ public class InteractiveNov {
                         + "his suit...you wonder what it is \n"
                         + "Please press ENTER to continue");
 
+                System.out.println();
+
                 memoryCountMan += 1; //remembers man
                 System.out.println("Memory Point:" + memoryCountMan);
+                currentLvl += LEVEL_UP;
+                System.out.println("+ " + LEVEL_UP + "pt");
+                System.out.println("LVL " + currentLvl);
+
+                JFrame window = new JFrame();
+                window.setSize(1000, 1000);
+                window.setTitle("Tutorial: Player Level");
+                //window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                window.setVisible(true);
+                Rectangle rect = new Rectangle(200, 200, 300, 200);
+                window.getContentPane().setBackground(Color.black);
+                window.setLayout(null);
+                con = window.getContentPane();
+
+                titleNamePanel = new JPanel();
+                titleNamePanel.setBounds(200,  200,  600, 200);
+                titleNamePanel.setBackground(Color.blue);
+
+                titleNameLabel = new JLabel("Choices that are smart & safe award 1pt;Choices that are controversial award 2 but run the risk of story fallout");
+
+                /*window.getContentPane().add(new JPanel());
+                titleNamePanel = new JPanel();
+                titleNamePanel.setBounds(200,  200,  600, 200);
+                titleNamePanel.setBackground(Color.blue);
+                titleNameLabel = new JLabel("Choices that are smart & safe award 1pt Choices that are controversial award 2 and run the risk of story fallout");
+*/
+
+
+
+
+
+                titleNameLabel.setForeground(Color.white);
+
+                titleNameLabel.setFont(titleFont);
+                titleNamePanel.add(titleNameLabel);
+                con.add(titleNamePanel);
 
             }
             if(response.equals("no")){
+                currentLvl += LEVEL_DOWN;
+                System.out.println("+ " + LEVEL_DOWN + "pt");
+                System.out.println("LVL " + currentLvl);
                 System.out.println("The man mumbles something with \n "
                         + "a evil look in his eye. He goes accross \n "
                         + "the train car to the other side \n "
@@ -183,13 +253,20 @@ public class InteractiveNov {
         input = s.nextInt();
 
         if (input == 0) {
+            currentLvl = currentLvl + LEVEL_UP;
+            System.out.println("+ " + LEVEL_UP + "pts");
+            System.out.println("LVL " + currentLvl);
+
+
+
+
 
 
             System.out.println("You look up and see Maggie. \n "
                     + "Maggie is an old friend who also lives in the city. \n "
                     + "She was romantically involved with your best \n "
                     + "friend and business partner, John. To be honest, \n "
-                    + "they still are seeing eachother, John just doesnt like \n "
+                    + "they still are seeing each other, John just doesnt like \n "
                     + "to publicly announce his relationships.");
             stressCount +=2;
             System.out.println("SC" + stressCount);
@@ -317,11 +394,11 @@ public class InteractiveNov {
         System.out.println("You take a deep breath and gather yourself. \n "
                 + "You study your belongings spread out everywhere. \n "
                 + "This wasn't a struggle. Someone was here looking for something. \n "
-                + "You look through your office desk. The hidden safe wasnt opened.They \n "
-                + "didnt want money. You think long and hard about what your \n "
-                + "next move shoud be. You suddenly think back to this morning. \n"
+                + "You look through your office desk. The hidden safe wasn't opened.They \n "
+                + "didn't want money. You think long and hard about what your \n "
+                + "next move should be. You suddenly think back to this morning. \n"
                 + "Maggie was trying to tell you something. She knows something. \n"
-                + "You rush out of the building and grab a taxi accross town \n"
+                + "You rush out of the building and grab a taxi across town \n"
                 + "to Maggie's. You arrive outside her place. She is on the third \n"
                 + "floor. You see what appears to be the shadows of four men quickly \n"
                 + "rummaging around.");
@@ -471,7 +548,7 @@ public class InteractiveNov {
         System.out.println("John begins to look ghost white as you confront him. \n "
                 + "He tells you that he had no choice. He says that he was in debt \n "
                 + "and got mixed up with the Chinese mob. He had to sell stock shares \n "
-                + "to pay his debt, but it wasnt enough. This business that you \n "
+                + "to pay his debt, but it wasn't enough. This business that you \n "
                 + "and him built, the one that you started in college is gone. \n "
                 + "You cant believe it. Its almost too crazy to actually believe, but \n"
                 + "you know John. It sickens you to your core, but he's always \n "
@@ -500,13 +577,13 @@ public class InteractiveNov {
                 + "Less than 30 seconds later two more large-set men walk \n "
                 + "out from the exit and into the ally");
         System.out.println("It suddenly all clicks. What has John gotten \n "
-                + "himeslf into you wonder.");
+                + "himself into you wonder.");
         System.out.println("These men are obviously not messing around. \n"
-                + "You see one large Chinese man walkning in through the exit door \n"
+                + "You see one large Chinese man walking in through the exit door \n"
                 + "into the ally. The ally leads into a dead end around the corner, \n"
                 + "so there appears to be zero hope of anyone seeing you or stopping \n"
                 + "them. You get the feeling that even if someone did see this, \n"
-                + "that person wouldnt be able to do anything to these guys. \n"
+                + "that person wouldn't be able to do anything to these guys. \n"
                 + "The large man has the appearance of being the one in charge. \n"
                 + "The man nods at his men, as if to say your work here is done. \n"
                 + "Then quickly spits out a word in Chinese. Apparently it means \n"
@@ -523,8 +600,8 @@ public class InteractiveNov {
                 + "that you and John bulit is literally worth millions. How could \n"
                 + "he run out of money?");
         System.out.println("Chen tells you that our company is now his. It's just a matter \n"
-                + "of finalizing a few things. They need my signiture to hand over the \n"
-                + "comopany! Thats why John was so nervous. Thats why he wanted me to \n"
+                + "of finalizing a few things. They need my signature to hand over the \n"
+                + "company! Thats why John was so nervous. That's why he wanted me to \n"
                 + "choose the Chinese deal so bad.");
         System.out.println("Chen gives you an ultimatum: Give them your shares, \n"
                 + "sign over your CEO rights, and no blood will be spilled. \n"
@@ -548,7 +625,7 @@ public class InteractiveNov {
 
 
     public static void theSetUp(){
-        System.out.println("It is now 12 am. You are in an iterragation \n "
+        System.out.println("It is now 12 am. You are in an interrogation \n "
                 + "room at the downtown precinct. You have been in the cold \n"
                 + "room for over 2 hours without a word from a detective. \n"
                 + "You look into the one-way-mirror to glimpse at your current \n"
@@ -1078,6 +1155,7 @@ public class InteractiveNov {
                 + "about all the strange happenings.");
     }
     public static void saveMaggie(){
+
         System.out.println("You tell them you don't want anymore violence. You tell them to release Maggie \n"
                 + "right now and then you'll sign. Maggie is safe, she will walk away safely!");
         System.out.println("YOU SAVED MAGGIE!");
