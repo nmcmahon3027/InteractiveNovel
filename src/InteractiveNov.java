@@ -5,7 +5,7 @@ import javax.swing.*;
 
 import java.time.LocalDateTime;
 
-public class InteractiveNov extends Stats{
+ class InteractiveNov extends Stats{ //WAS public
 
     public void paintMenu(Graphics g){
         g.setColor(Color.CYAN);
@@ -182,6 +182,7 @@ public class InteractiveNov extends Stats{
                 titleNamePanel.setBounds(200,  200,  600, 200);
                 titleNamePanel.setBackground(Color.blue);
 
+
                 titleNameLabel = new JLabel("Choices that are smart & safe award 1pt;Choices that are controversial award 2 but run the risk of story fallout");
 
                 /*window.getContentPane().add(new JPanel());
@@ -287,6 +288,12 @@ public class InteractiveNov extends Stats{
             System.out.println("It's Maggie. You see her from time to time on your commute. \n "
                     + "You dont want to deal with Maggie right now \n "
                     + "so you ignore her words");
+            currentLvl = currentLvl + LEVEL_DOWN;
+            System.out.println("+ " + LEVEL_DOWN + "pts");
+            System.out.println("LVL " + currentLvl);
+
+
+
 
 
 
@@ -350,9 +357,14 @@ public class InteractiveNov extends Stats{
 
 
 
+
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
         if(input.equals("rethink")){
+            InteractiveNov myNov = new InteractiveNov();
+            System.out.println(myNov.printLevelPlus() + LEVEL_DOWN + "pt");
+            System.out.println("LVL " + currentLvl);
+
 
 
             System.out.println("John says good thinking and walks away");
@@ -378,6 +390,12 @@ public class InteractiveNov extends Stats{
             con.add(titleNamePanel);
         }
         if(input.equals("sure")){
+            currentLvl = currentLvl + LEVEL_UP;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + LEVEL_UP + " pts");
+            System.out.println("LVL " + currentLvl);
+
+
 
             System.out.println("John says that I am making the \n"
                     + "biggest mistake of my life, he almost looks shook. \n"
@@ -439,10 +457,19 @@ public class InteractiveNov extends Stats{
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
         if(input.equals("confront")){
+            currentLvl = currentLvl + LEVEL_UP;
+            InteractiveNov myNov3 = new InteractiveNov();
+            System.out.println(myNov3.printLevelPlus() + LEVEL_UP + " pts");
+            System.out.println("LVL " + currentLvl);
             System.out.println("Maggie begs you not to but all you see is red.");
             confrontJohn();
         }
         if(input.equals("go along")){
+            currentLvl = currentLvl + LEVEL_UP;
+            InteractiveNov myNov4 = new InteractiveNov();
+            System.out.println(myNov4.printLevelPlus() + LEVEL_UP + " pts");
+            System.out.println("LVL " + currentLvl);
+
             System.out.println("You calmly bury your anger and stick with Maggie");
             playSafe();
         }
@@ -467,12 +494,22 @@ public class InteractiveNov extends Stats{
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
         if(input.equals("escape")){
+            currentLvl = currentLvl + LEVEL_UP;
+            InteractiveNov myNov = new InteractiveNov();
+            System.out.println(myNov.printLevelPlus() + LEVEL_UP + " pts");
+            System.out.println("LVL " + currentLvl);
+
             System.out.println("You turn the tide with one relentless grab to \n"
                     + "the man's wrist. You rip his grasp of you and throw him \n"
                     + "to the ground");
             escapedGrasp();
         }
         if(input.equals("listen")){
+            currentLvl = currentLvl + LEVEL_DOWN;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + LEVEL_DOWN + " pts");
+            System.out.println("LVL " + currentLvl);
+
             System.out.println("You have a small window of opportunity, but \n"
                     + "you may make things worse if I get violent or make a scene.");
             threatGrasp();
@@ -495,7 +532,7 @@ public class InteractiveNov extends Stats{
                 + "that is affiliated with really dangerous people. Maggie says, \n"
                 + "that these people know that she has been seeing John. She believes \n"
                 + "they've been following her. They're probably following me too, she says. \n"
-                + " She thinks shes somehthing that \n"
+                + " She thinks shes something that \n"
                 + "these people can take or hurt to get to John. There are still \n"
                 + "things that she cant put together. She's just been piecing \n"
                 + "everything together. This is crazy!");

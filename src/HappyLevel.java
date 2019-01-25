@@ -43,7 +43,7 @@ public class HappyLevel {
         level +=1;
         System.out.println(this.level);
 
-        return  comment2;
+        return comment2;
     }
 
 

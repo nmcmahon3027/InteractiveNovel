@@ -51,7 +51,8 @@ public class Stats {
         a = LVL;
         b = LEVEL_UP;
         c = LEVEL_DOWN;
-        return a + b;
+        return a + b + c;
+
 
 
     }
