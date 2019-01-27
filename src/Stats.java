@@ -14,6 +14,10 @@ public class Stats {
     public static final int LEVEL_DOWN = 1;
 
     public static int currentLvl = DEFAULT_LEVEL;
+    public static String levelp = "LVL";
+    public static String pt = "pt";
+    public static String pts = "pts";
+    public static String bonus = "BONUS!";
 
 
 
@@ -32,6 +36,9 @@ public class Stats {
     }
     public String getName(){
         return name;
+    }
+    public String getBonus(){
+        return bonus;
     }
     public int getLVL(){
         return DEFAULT_LEVEL;
@@ -60,4 +67,8 @@ public class Stats {
         String plus = "+";
         return plus;
     }
+
+
+
+
 }

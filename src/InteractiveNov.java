@@ -4,8 +4,11 @@ import java.util.Scanner;
 import javax.swing.*;
 
 import java.time.LocalDateTime;
+import javax.swing.JFrame;
+import javax.swing.JButton;
 
- class InteractiveNov extends Stats{ //WAS public
+ class InteractiveNov extends Stats { //WAS public
+
 
     public void paintMenu(Graphics g){
         g.setColor(Color.CYAN);
@@ -19,6 +22,10 @@ import java.time.LocalDateTime;
         load.add(load);
 
     }
+
+
+
+
 
 
 
@@ -42,6 +49,10 @@ import java.time.LocalDateTime;
        HappyLevel charMood = new HappyLevel(0, 0);
        charMood.getMood();
         System.out.println("CURRENT MOOD LEVEL: "+ charMood.mood);
+        new SimpleJButton();
+
+
+
 
 
 
@@ -165,8 +176,8 @@ import java.time.LocalDateTime;
                 memoryCountMan += 1; //remembers man
                 System.out.println("Memory Point:" + memoryCountMan);
                 currentLvl += LEVEL_UP;
-                System.out.println("+ " + LEVEL_UP + "pt");
-                System.out.println("LVL " + currentLvl);
+                System.out.println("+" + LEVEL_UP + pts);
+                System.out.println(levelp + currentLvl);
 
                 JFrame window = new JFrame();
                 window.setSize(1000, 1000);
@@ -362,8 +373,8 @@ import java.time.LocalDateTime;
         Object input = scan.nextLine();
         if(input.equals("rethink")){
             InteractiveNov myNov = new InteractiveNov();
-            System.out.println(myNov.printLevelPlus() + LEVEL_DOWN + "pt");
-            System.out.println("LVL " + currentLvl);
+            System.out.println(myNov.printLevelPlus() + LEVEL_DOWN + pt);
+            System.out.println(levelp + currentLvl);
 
 
 
@@ -523,7 +534,7 @@ import java.time.LocalDateTime;
                 + "good friend. Maggie tells you that we both have to leave. \n"
                 + "she says if she didnt show her face they would be on to her.\n "
                 + "Who are they? you ask. She nods, indicating we should talk \n"
-                + "somehwere else. You and Maggie arrive at a nearby dive that \n"
+                + "somewhere else. You and Maggie arrive at a nearby dive that \n"
                 + "her friend owns. She slowly catches her breath as she knows \n"
                 + "what she's about to say is crazy. John's been in deep trouble \n"
                 + "with the Chinese mob. He got into some trouble on his business \n"
@@ -750,6 +761,10 @@ import java.time.LocalDateTime;
             titleNameLabel.setFont(titleFont);
             titleNamePanel.add(titleNameLabel);
             con.add(titleNamePanel);
+            InteractiveNov myint1 = new InteractiveNov();
+            myint1.isSavedCompany();
+
+            System.out.println(bonus);
 
 
 
