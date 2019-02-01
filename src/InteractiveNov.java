@@ -546,10 +546,23 @@ import javax.swing.JButton;
             confrontJohn();
         }
         if(input.equals("go along")){
-            currentLvl = currentLvl + LEVEL_UP;
+            currentLvl = currentLvl + LEVEL_DOWN;
             InteractiveNov myNov4 = new InteractiveNov();
             System.out.println(myNov4.printLevelPlus() + LEVEL_UP + " pts");
             System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("You leveled Up!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 1pts", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
 
             System.out.println("You calmly bury your anger and stick with Maggie");
             playSafe();
@@ -629,13 +642,49 @@ import javax.swing.JButton;
                     + "have to find hard evidence and present it to the cops. \n"
                     + "What if they own the cops? you ask. We have to find a way to stop \n"
                     + "this.");
+
+            currentLvl = currentLvl + LEVEL_UP;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + LEVEL_UP + " pts");
+            System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("You leveled Up!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 2pts", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
             maggieStory();
 
         }
         if(input.equals("scorn")){
-            System.out.println("Your head is spinning, you're furious, confusted, and \n"
+            System.out.println("Your head is spinning, you're furious, confused, and \n"
                     + "worst of all worried. You yell at Maggie, telling her she \n"
                     + "should have come to me earlier when she knew about this!");
+
+            currentLvl = currentLvl + LEVEL_DOWN;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + LEVEL_DOWN + " pts");
+            System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("You leveled Up!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 1pts", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
             maggieLeaves();
 
         }
@@ -732,10 +781,46 @@ import javax.swing.JButton;
         Object input = scan.nextLine();
         if(input.equals("sign")){
             System.out.println("You realize that there is nothing that you can do.");
+
+            currentLvl = currentLvl + LEVEL_DOWN;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + LEVEL_DOWN + " pts");
+            System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("You leveled Up!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 1pt ", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
             signNow();
         }
         if(input.equals("stall")){
             System.out.println("You can't sign it over! This company is your life!");
+
+            currentLvl = currentLvl + LEVEL_UP;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + LEVEL_UP + " pts");
+            System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("You leveled Up!");
+            JButton b = new JButton("LVL " + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 2pts", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
             stallSign();
         }
 
@@ -763,6 +848,24 @@ import javax.swing.JButton;
         if(input.equals("lawyer")){
             System.out.println("You respond quickly with the typical dialogue. \n"
                     + "You tell Willows you want a lawyer.");
+
+            currentLvl = currentLvl + LEVEL_UP;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + LEVEL_UP + " pts");
+            System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("You leveled Up!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 2pts", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
             wantLawyer();
 
 
@@ -790,6 +893,23 @@ import javax.swing.JButton;
                     + "pocket. He is so focused on trying to take notes that he \n"
                     + " didnt seem to notice the random objects \n "
                     + "that fell from his inside pocket.");
+
+            currentLvl = currentLvl + LEVEL_DOWN;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + LEVEL_DOWN + " pts");
+            System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("You leveled Up!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 1pt", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
 
             talkOrStop();
 
@@ -836,12 +956,47 @@ import javax.swing.JButton;
 
             System.out.println(bonus);
 
+            currentLvl = currentLvl + LEVEL_DOWN;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + LEVEL_DOWN + " pts");
+            System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("You leveled Up!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 1pt", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
 
 
 
         }
         if(input.equals("fight")){
             System.out.println("You decide to see this through and fight!");
+
+            currentLvl = currentLvl + LEVEL_UP;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + LEVEL_UP + " pts");
+            System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("You leveled Up!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 2pts", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
             keepGoing();
 
 
