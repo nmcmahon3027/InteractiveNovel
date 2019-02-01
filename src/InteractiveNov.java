@@ -213,6 +213,20 @@ import javax.swing.JButton;
                 titleNamePanel.add(titleNameLabel);
                 con.add(titleNamePanel);
 
+
+                JFrame f = new JFrame("You leveled Up!");
+                JButton b = new JButton("LVL 2", new ImageIcon("github_image.png"));
+                b.setBounds(100, 100, 140, 40);
+                f.add(b);
+                f.setSize(300, 400);
+                f.setLayout(null);
+                f.setVisible(true);
+
+                JButton b2 = new JButton("+ 2pts", new ImageIcon("Sample.png"));
+                b2.setBounds(50, 50, 100, 20);
+                f.add(b2);
+
+
             }
             if(response.equals("no")){
                 currentLvl += LEVEL_DOWN;
@@ -222,6 +236,18 @@ import javax.swing.JButton;
                         + "a evil look in his eye. He goes accross \n "
                         + "the train car to the other side \n "
                         + "Press ENTER to continue");
+
+                JFrame f = new JFrame("You leveled Up!");
+                JButton b = new JButton("LVL 1", new ImageIcon("github_image.png"));
+                b.setBounds(100, 100, 140, 40);
+                f.add(b);
+                f.setSize(300, 400);
+                f.setLayout(null);
+                f.setVisible(true);
+
+                JButton b2 = new JButton("+ 1pts", new ImageIcon("Sample.png"));
+                b2.setBounds(50, 50, 100, 20);
+                f.add(b2);
 
 
 
@@ -303,6 +329,18 @@ import javax.swing.JButton;
             System.out.println("+ " + LEVEL_DOWN + "pts");
             System.out.println("LVL " + currentLvl);
 
+            JFrame f = new JFrame("You leveled Up!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ " + LEVEL_DOWN , new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
 
 
 
@@ -362,6 +400,22 @@ import javax.swing.JButton;
     {	}
 
     public static void japanStory(){ //new method
+        JFrame f = new JFrame("Choice");
+        JButton b = new JButton("rethink", new ImageIcon("github_image.png"));
+        b.setBounds(100, 100, 140, 40);
+        f.add(b);
+        f.setSize(300, 400);
+        f.setLayout(null);
+        f.setVisible(true);
+
+        JButton b2 = new JButton("sure", new ImageIcon("Sample.png"));
+        b2.setBounds(50, 50, 100, 20);
+        f.add(b2);
+
+
+
+
+
         System.out.println("John asks you to reconsider. He doesnt want any of this to \n "
                 + "have to go through the committee. He asks you to at least sleep on it \n "
                 + "Will you: 'rethink' or 'sure': ");
@@ -399,12 +453,16 @@ import javax.swing.JButton;
             titleNameLabel.setFont(titleFont);
             titleNamePanel.add(titleNameLabel);
             con.add(titleNamePanel);
+
+
         }
         if(input.equals("sure")){
             currentLvl = currentLvl + LEVEL_UP;
             InteractiveNov myNov2 = new InteractiveNov();
             System.out.println(myNov2.printLevelPlus() + LEVEL_UP + " pts");
             System.out.println("LVL " + currentLvl);
+
+
 
 
 
@@ -473,6 +531,18 @@ import javax.swing.JButton;
             System.out.println(myNov3.printLevelPlus() + LEVEL_UP + " pts");
             System.out.println("LVL " + currentLvl);
             System.out.println("Maggie begs you not to but all you see is red.");
+
+            JFrame f = new JFrame("You leveled Up!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ " + LEVEL_UP , new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
             confrontJohn();
         }
         if(input.equals("go along")){
@@ -1267,6 +1337,19 @@ import javax.swing.JButton;
             titleNamePanel.add(titleNameLabel);
             con.add(titleNamePanel);
 
+            JFrame f = new JFrame("True Ending achieved!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("100% + " + LEVEL_UP , new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
+
 
 
         }
@@ -1433,6 +1516,7 @@ import javax.swing.JButton;
         titleNameLabel.setFont(titleFont);
         titleNamePanel.add(titleNameLabel);
         con.add(titleNamePanel);
+       
 
     }
 
