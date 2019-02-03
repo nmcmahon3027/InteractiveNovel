@@ -75,6 +75,10 @@ public class Stats {
         boolean savedJohn = false;
         return false;
     }
+    public boolean manMemory(){
+        boolean manRem = false;
+        return manRem;
+    }
 
 
 

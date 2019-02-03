@@ -94,6 +94,7 @@ class InteractiveNov extends Stats { //WAS public
 
         System.out.println("Enter your name");
 
+
         name = s.nextLine();
 
 
@@ -236,6 +237,8 @@ class InteractiveNov extends Stats { //WAS public
 
             }
             if(response.equals("no")){
+                Tutorials tutorials = new Tutorials();
+                tutorials.printTutorial();
 
 
 
@@ -1566,6 +1569,7 @@ class InteractiveNov extends Stats { //WAS public
         //System.out.println("ENTER 'yes' or 'no' ");
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
+
         if(input.equals("stab")){
             System.out.println("You gain a rush of rage and stab the man in his arm. \n"
                     + "He screams and grabs his wounded, bloody arm. You run! You \n"
@@ -1614,6 +1618,7 @@ class InteractiveNov extends Stats { //WAS public
 
         }
         if(input.equals("sign")){
+
             System.out.println("You signed over the company!");
             System.out.println("*GAME RESULTS: John: Alive, Maggie: Alive, Company: Sold");
             System.out.println("You finished the game with a 67% Not too bad!");
