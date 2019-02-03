@@ -6,8 +6,9 @@ import javax.swing.*;
 import java.time.LocalDateTime;
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 
- class InteractiveNov extends Stats { //WAS public
+class InteractiveNov extends Stats { //WAS public
 
 
     public void paintMenu(Graphics g){
@@ -190,7 +191,7 @@ import javax.swing.JButton;
                 con = window.getContentPane();
 
                 titleNamePanel = new JPanel();
-                titleNamePanel.setBounds(200,  200,  600, 200);
+                titleNamePanel.setBounds(200,  200,  600, 200);//200 200
                 titleNamePanel.setBackground(Color.blue);
 
 
@@ -225,10 +226,19 @@ import javax.swing.JButton;
                 JButton b2 = new JButton("+ 2pts", new ImageIcon("Sample.png"));
                 b2.setBounds(50, 50, 100, 20);
                 f.add(b2);
+               // b2.setText("<html><body>Line 1 <br/>Line 2</body></html>");
+                //above adds a 2nd line in the 2nd button, b2
+
+
+
+
 
 
             }
             if(response.equals("no")){
+
+
+
                 currentLvl += LEVEL_DOWN;
                 System.out.println("+ " + LEVEL_DOWN + "pt");
                 System.out.println("LVL " + currentLvl);
@@ -244,6 +254,8 @@ import javax.swing.JButton;
                 f.setSize(300, 400);
                 f.setLayout(null);
                 f.setVisible(true);
+
+
 
                 JButton b2 = new JButton("+ 1pts", new ImageIcon("Sample.png"));
                 b2.setBounds(50, 50, 100, 20);
@@ -340,6 +352,7 @@ import javax.swing.JButton;
             JButton b2 = new JButton("+ " + LEVEL_DOWN , new ImageIcon("Sample.png"));
             b2.setBounds(50, 50, 100, 20);
             f.add(b2);
+            f.getRootPane().setDefaultButton(b2);//NEW
 
 
 
@@ -411,6 +424,7 @@ import javax.swing.JButton;
         JButton b2 = new JButton("sure", new ImageIcon("Sample.png"));
         b2.setBounds(50, 50, 100, 20);
         f.add(b2);
+
 
 
 
@@ -961,7 +975,7 @@ import javax.swing.JButton;
             System.out.println(myNov2.printLevelPlus() + LEVEL_DOWN + " pts");
             System.out.println("LVL " + currentLvl);
 
-            JFrame f = new JFrame("You leveled Up!");
+            JFrame f = new JFrame("Story Branch ended");
             JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
             b.setBounds(100, 100, 140, 40);
             f.add(b);
@@ -969,7 +983,7 @@ import javax.swing.JButton;
             f.setLayout(null);
             f.setVisible(true);
 
-            JButton b2 = new JButton("+ 1pt", new ImageIcon("Sample.png"));
+            JButton b2 = new JButton("Company saved: " + myint1, new ImageIcon("Sample.png"));
             b2.setBounds(50, 50, 100, 20);
             f.add(b2);
 
@@ -1014,7 +1028,27 @@ import javax.swing.JButton;
                 + "on the top of the car. The third man forces you over to the side \n"
                 + "of the car. He sets the pen on top of the paper. You sign \n"
                 + "the document. It seems that all your company ownership is now gone.");
+
+        currentLvl = currentLvl + LEVEL_DOWN;
+        InteractiveNov myNov2 = new InteractiveNov();
+        System.out.println(myNov2.printLevelPlus() + LEVEL_DOWN + " pts");
+        System.out.println("LVL " + currentLvl);
+
+        JFrame f = new JFrame("You leveled Up!");
+        JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+        b.setBounds(100, 100, 140, 40);
+        f.add(b);
+        f.setSize(300, 400);
+        f.setLayout(null);
+        f.setVisible(true);
+
+        JButton b2 = new JButton("+ 1pt", new ImageIcon("Sample.png"));
+        b2.setBounds(50, 50, 100, 20);
+        f.add(b2);
+
         johnAlive();//End of this story line
+
+
 
     }
     public static void stallSign(){
@@ -1029,6 +1063,23 @@ import javax.swing.JButton;
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
         if(input.equals("pen")){
+            currentLvl = currentLvl + bonusNum;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + bonusNum + " pts");
+            System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("BONUS");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 3pts", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
             takePen();
 
 
@@ -1036,6 +1087,24 @@ import javax.swing.JButton;
 
         }
         if(input.equals("beating")){
+
+            currentLvl = currentLvl + LEVEL_DOWN;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + LEVEL_DOWN + " pts");
+            System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("Story branch ended");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 1pt", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
             System.out.println("You are unconscious!");
 
 
@@ -1211,6 +1280,24 @@ import javax.swing.JButton;
         }
         if(input.equals("get files")){
             System.out.println("You focus on getting the files from the desk.");
+
+            currentLvl = currentLvl + bonusNum;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + bonusNum + " pts");
+            System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("Secret Uncovered!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 3pts", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
             gotProof();
         }
 
@@ -1235,6 +1322,7 @@ import javax.swing.JButton;
             System.out.println("You have to end this");
             zeroPerc();
 
+
             //New content (1/18/19)
             //New GUI's
             JFrame window = new JFrame();
@@ -1250,17 +1338,34 @@ import javax.swing.JButton;
             titleNamePanel = new JPanel();
             titleNamePanel.setBounds(100,  100,  600, 150);
             titleNamePanel.setBackground(Color.red);
-            titleNameLabel = new JLabel("--5%--10%---20%---30%----50% \n" +
-                    "----70%--80%--100%");
+            titleNameLabel = new JLabel("Final Level: " + currentLvl);
 
             titleNameLabel.setForeground(Color.white);
             titleNameLabel.setFont(titleFont);
             titleNamePanel.add(titleNameLabel);
             con.add(titleNamePanel);
 
+            currentLvl = currentLvl + LEVEL_DOWN;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + LEVEL_DOWN + " pts");
+            System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("You leveled Up!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("- 1pt", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
 
         }
         if(input.equals("dont")){
+
             System.out.println("You get a call from the police saying John was found dead!"
                     + "No checkpoints available. Please restart");
             JFrame window = new JFrame();

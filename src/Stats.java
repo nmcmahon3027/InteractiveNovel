@@ -18,6 +18,7 @@ public class Stats {
     public static String pt = "pt";
     public static String pts = "pts";
     public static String bonus = "BONUS!";
+    public static int bonusNum = 3;
 
 
 
@@ -25,6 +26,7 @@ public class Stats {
     public String name;
     public boolean savedCompany;
     public boolean savedMaggie;
+    public boolean savedJohn;
 
 
     public Stats(){ //Stats constructor
@@ -32,6 +34,7 @@ public class Stats {
         name = "";
         savedCompany = false;
         savedMaggie = false;
+        savedJohn = false;
 
     }
     public String getName(){
@@ -66,6 +69,11 @@ public class Stats {
     public String printLevelPlus(){
         String plus = "+";
         return plus;
+    }
+
+    public boolean isSavedJohn(){
+        boolean savedJohn = false;
+        return false;
     }
 
 
