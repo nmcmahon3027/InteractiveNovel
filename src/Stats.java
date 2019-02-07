@@ -1,7 +1,7 @@
 
 
 
-public class Stats {
+public class Stats{
 
     //starting level stat
     public static int DEFAULT_LEVEL = 0;

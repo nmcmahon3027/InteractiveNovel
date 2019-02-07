@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 
+
+
 class InteractiveNov extends Stats { //WAS public
 
 
@@ -236,9 +238,18 @@ class InteractiveNov extends Stats { //WAS public
 
 
             }
-            if(response.equals("no")){
+            if(response.equals("no")){ //Say Sorry?
                 Tutorials tutorials = new Tutorials();
-                tutorials.printTutorial();
+                tutorials.getTutor();
+                System.out.println(tutorials.getTutor());
+                Tutorials tutorials1 = new Tutorials();
+                //tutorials1.setTutor("Choices that are smart & safe award 1pt;Choices that are controversial award 2 but run the risk of story fallout");
+                Tutorials tutPane = new Tutorials();
+                tutPane.getTutorPane();
+                System.out.println(tutPane.getTutorPane());
+
+
+
 
 
 
@@ -309,6 +320,7 @@ class InteractiveNov extends Stats { //WAS public
             currentLvl = currentLvl + LEVEL_UP;
             System.out.println("+ " + LEVEL_UP + "pts");
             System.out.println("LVL " + currentLvl);
+
 
 
 
@@ -483,6 +495,10 @@ class InteractiveNov extends Stats { //WAS public
 
 
 
+
+
+
+
             System.out.println("John says that I am making the \n"
                     + "biggest mistake of my life, he almost looks shook. \n"
                     + " He is furious and storms off");
@@ -560,6 +576,31 @@ class InteractiveNov extends Stats { //WAS public
             JButton b2 = new JButton("+ " + LEVEL_UP , new ImageIcon("Sample.png"));
             b2.setBounds(50, 50, 100, 20);
             f.add(b2);
+
+            if( input.equals("confront") && currentLvl >= 9){
+
+                currentLvl = currentLvl + bonusNum;
+                InteractiveNov myNov4 = new InteractiveNov();
+                System.out.println(myNov4.printLevelPlus() + bonusNum + " pts");
+                System.out.println("LVL " + currentLvl);
+                System.out.println("Maggie begs you not to but all you see is red.");
+
+                JFrame fBonus = new JFrame("You leveled Up!");
+                JButton bBonus = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+                bBonus.setBounds(100, 100, 140, 40);
+                fBonus.add(b);
+                fBonus.setSize(300, 400);
+                fBonus.setLayout(null);
+                fBonus.setVisible(true);
+
+                JButton b3 = new JButton("+ " + bonusNum , new ImageIcon("Sample.png"));
+                b3.setBounds(50, 50, 100, 20);
+                f.add(b3);
+
+            }
+
+
+
             confrontJohn();
         }
         if(input.equals("go along")){
@@ -620,6 +661,8 @@ class InteractiveNov extends Stats { //WAS public
             InteractiveNov myNov2 = new InteractiveNov();
             System.out.println(myNov2.printLevelPlus() + LEVEL_DOWN + " pts");
             System.out.println("LVL " + currentLvl);
+
+
 
             System.out.println("You have a small window of opportunity, but \n"
                     + "you may make things worse if I get violent or make a scene.");
@@ -1062,7 +1105,7 @@ class InteractiveNov extends Stats { //WAS public
         System.out.println("They hand you the pen and tell you to sign now.");
         System.out.println("'Take pen' or 'take a beating' ");
         System.out.println("ENTER 'pen' or 'beating'");
-        System.out.println("ENTER 'yes' or 'no' ");
+        System.out.println("ENTER 'pen' or beating ");//WAS 'yes' or 'no'
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
         if(input.equals("pen")){
@@ -1116,6 +1159,8 @@ class InteractiveNov extends Stats { //WAS public
 
     }
     public static void wantLawyer(){
+
+
         System.out.println("Detective Willows stares at you wil disdain.\n"
                 + "He was hoping I would cooperite. I'm not going to make it \n"
                 + "that easy on him!");
@@ -1142,6 +1187,8 @@ class InteractiveNov extends Stats { //WAS public
         if(input.equals("leave")){
             System.out.println("You are not taking the chance. This is too dangerous \n"
                     + "you just stick around here.");
+
+
             leaveWithDonn();
 
         }
@@ -1234,6 +1281,9 @@ class InteractiveNov extends Stats { //WAS public
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
         if(input.equals("maggie")){
+
+
+
             System.out.println("No amount of money is worth a persons life. \n"
                     + "John has already been killed. You can't live with \n"
                     + "another death.");
@@ -1277,6 +1327,24 @@ class InteractiveNov extends Stats { //WAS public
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
         if(input.equals("escape")){
+
+            currentLvl = currentLvl + LEVEL_UP;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + LEVEL_UP + " pts");
+            System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("You leveled Up!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 2pts", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
             System.out.println("You don't want to risk it. You leave.");
             escapeStation();
 
