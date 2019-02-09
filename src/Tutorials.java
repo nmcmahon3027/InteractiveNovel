@@ -4,6 +4,7 @@ import java.awt.*;
 
 
 public class Tutorials {
+    //try public?
     private String tutor = "Choices that are smart & safe award 1pt;Choices that are controversial award 2 but run the risk of story fallout";
     JOptionPane tutorPane = new JOptionPane(tutor);
 
@@ -24,5 +25,7 @@ public class Tutorials {
         this.tutor = tutor;
 
     }
+    public String sbEnded = "Story Branch Ended";
+
 
 }

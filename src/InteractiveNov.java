@@ -246,7 +246,7 @@ class InteractiveNov extends Stats { //WAS public
                 //tutorials1.setTutor("Choices that are smart & safe award 1pt;Choices that are controversial award 2 but run the risk of story fallout");
                 Tutorials tutPane = new Tutorials();
                 tutPane.getTutorPane();
-                System.out.println(tutPane.getTutorPane());
+                //System.out.println(tutPane.getTutorPane());
 
 
 
@@ -646,9 +646,9 @@ class InteractiveNov extends Stats { //WAS public
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
         if(input.equals("escape")){
-            currentLvl = currentLvl + LEVEL_UP;
+            currentLvl = currentLvl + LEVEL_DOWN;
             InteractiveNov myNov = new InteractiveNov();
-            System.out.println(myNov.printLevelPlus() + LEVEL_UP + " pts");
+            System.out.println(myNov.printLevelPlus() + LEVEL_DOWN + " pts");
             System.out.println("LVL " + currentLvl);
 
             System.out.println("You turn the tide with one relentless grab to \n"
@@ -657,10 +657,24 @@ class InteractiveNov extends Stats { //WAS public
             escapedGrasp();
         }
         if(input.equals("listen")){
-            currentLvl = currentLvl + LEVEL_DOWN;
+            currentLvl = currentLvl + LEVEL_UP;
             InteractiveNov myNov2 = new InteractiveNov();
-            System.out.println(myNov2.printLevelPlus() + LEVEL_DOWN + " pts");
+            System.out.println(myNov2.printLevelPlus() + LEVEL_UP + " pts");
             System.out.println("LVL " + currentLvl);
+
+
+            JFrame f = new JFrame("You leveled up!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 2pts ", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
 
 
 
@@ -1029,7 +1043,7 @@ class InteractiveNov extends Stats { //WAS public
             f.setLayout(null);
             f.setVisible(true);
 
-            JButton b2 = new JButton("Company saved: " + myint1, new ImageIcon("Sample.png"));
+            JButton b2 = new JButton("CompanySaved" + myint1, new ImageIcon("Sample.png"));
             b2.setBounds(50, 50, 100, 20);
             f.add(b2);
 
@@ -1057,7 +1071,21 @@ class InteractiveNov extends Stats { //WAS public
             b2.setBounds(50, 50, 100, 20);
             f.add(b2);
 
-            keepGoing();
+            System.out.println("Story Branch Ended");
+            System.out.println("Load most recent save (i.e. chapter)?");
+            System.out.println("ENTER 'yes' or 'no' ");
+            Scanner scanLoad = new Scanner(System.in);
+            Object inputLoad = scan.nextLine();
+
+            if(inputLoad.equals("yes")){
+                maggieStory();
+            }if(inputLoad.equals("no")){
+                keepGoing();
+            }
+
+
+
+           // keepGoing();
 
 
         }
@@ -1193,11 +1221,44 @@ class InteractiveNov extends Stats { //WAS public
 
         }
         if(input.equals("stay")){
+
+            currentLvl = currentLvl + bonusNum;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + LEVEL_UP + " pts");
+            System.out.println("LVL " + bonusNum);
+
+            JFrame f = new JFrame("Bonus!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 3pts", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
+
             System.out.println("You want the detective to know the truth! There are \n"
                     + "dangerous people out there!");
-            staySafe();
+            if(currentLvl >= 10){
+                JFrame secretFrame = new JFrame("Hidden Path Unlocked!");
+                JPasswordField jPasswordField = new JPasswordField();
+                jPasswordField.setBounds(100, 100, 140, 40);
+                secretFrame.add(jPasswordField);
+                secretFrame.setSize(300, 400);
+                secretFrame.setLayout(null);
+                secretFrame.setVisible(true);
+
+
+            }else{
+                staySafe();
+            }
+            //staySafe();
 
         }
+
 
 
     }
@@ -1287,7 +1348,7 @@ class InteractiveNov extends Stats { //WAS public
             System.out.println("No amount of money is worth a persons life. \n"
                     + "John has already been killed. You can't live with \n"
                     + "another death.");
-            saveMaggie();
+            saveMaggie(); //RELOAD
 
 
         }
@@ -1309,6 +1370,29 @@ class InteractiveNov extends Stats { //WAS public
                 + "building alarm goes off. Now you're in trouble! You \n"
                 + "run. It may look like this is the end.");
         System.out.println("*GAME RESULTS: John: Deceased, Maggie: Unknown, Company: Unknown");
+
+        currentLvl = currentLvl + LEVEL_DOWN;
+        InteractiveNov myNov2 = new InteractiveNov();
+        System.out.println(myNov2.printLevelPlus() + LEVEL_DOWN + " pts");
+        System.out.println("LVL " + currentLvl);
+
+        JFrame f = new JFrame("Story Branch Ended");
+        JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+        b.setBounds(100, 100, 140, 40);
+        f.add(b);
+        f.setSize(300, 400);
+        f.setLayout(null);
+        f.setVisible(true);
+
+        JButton b2 = new JButton("+ 1pt ", new ImageIcon("Sample.png"));
+        b2.setBounds(50, 50, 100, 20);
+        f.add(b2);
+
+        Stats printFinalStats = new Stats();//NEW 2/8/19
+        printFinalStats.savedJohn = false;
+        System.out.println(printFinalStats.isSavedJohn());
+
+
     }
     public static void goRight(){
         System.out.println("You look down the stairs. Someone walks past. \n"
@@ -1439,15 +1523,15 @@ class InteractiveNov extends Stats { //WAS public
 
             System.out.println("You get a call from the police saying John was found dead!"
                     + "No checkpoints available. Please restart");
-            JFrame window = new JFrame();
-            window.setSize(1000, 1000);
-            window.setTitle("MENU");
-            window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            window.setVisible(true);
+            JFrame window1 = new JFrame();
+            window1.setSize(1000, 1000);
+            window1.setTitle("MENU");
+            window1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            window1.setVisible(true);
             Rectangle rect = new Rectangle(100, 100, 300, 100);
-            window.getContentPane().setBackground(Color.red);
-            window.setLayout(null);
-            con = window.getContentPane();
+            window1.getContentPane().setBackground(Color.red);
+            window1.setLayout(null);
+            con = window1.getContentPane();
 
             titleNamePanel = new JPanel();
             titleNamePanel.setBounds(100,  100,  600, 150);
@@ -1457,6 +1541,10 @@ class InteractiveNov extends Stats { //WAS public
             titleNameLabel.setFont(titleFont);
             titleNamePanel.add(titleNameLabel);
             con.add(titleNamePanel);
+
+
+
+
         }
 
 
@@ -1620,11 +1708,39 @@ class InteractiveNov extends Stats { //WAS public
         Object input = scan.nextLine();
         if(input.equals("yes")){
             System.out.println("Going to last checkpoint...");
+
+            JFrame f = new JFrame("Story Branch Ended");
+            JButton b = new JButton("Going to last checkpoint", new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("Fin", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
+
             talkAboutMag();
 
 
         }
         if(input.equals("no")){
+
+            JFrame f = new JFrame("Quitting game");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            //JButton b2 = new JButton("+ 1pt ", new ImageIcon("Sample.png"));
+            //b2.setBounds(50, 50, 100, 20);
+            //f.add(b2);
+
+
             System.out.println("You quit the game");
 
 
