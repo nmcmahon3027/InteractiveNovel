@@ -49,7 +49,7 @@ public class SimpleJButton {
             jTextField.setVisible(true);
             //jf.add(jTextField);
 
-            jf.pack();
+            jf.pack();//
             jf.setVisible(true);
             synchronized(button) {
                 try {
