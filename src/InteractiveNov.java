@@ -16,6 +16,7 @@ class InteractiveNov extends Stats { //WAS public
     public void paintMenu(Graphics g){
         g.setColor(Color.CYAN);
         g.fillRect(20, 50, 100, 100);
+
         System.out.println(g);
     }
     public void paintComponent(Graphics g){
@@ -23,6 +24,7 @@ class InteractiveNov extends Stats { //WAS public
         JButton load = new JButton("Load");
         startNewGame.add(startNewGame);
         load.add(load);
+
 
     }
 
@@ -53,6 +55,8 @@ class InteractiveNov extends Stats { //WAS public
        charMood.getMood();
         System.out.println("CURRENT MOOD LEVEL: "+ charMood.mood);
         new SimpleJButton();
+        new ProgressBar();
+
 
 
 
@@ -269,11 +273,18 @@ class InteractiveNov extends Stats { //WAS public
                 f.setLayout(null);
                 f.setVisible(true);
 
+                //TESTS
+                System.out.println("@DEV TEST@");
+                //System.out.println("Character Mood: " + charMood);
+                System.out.println("Default Level: " + DEFAULT_LEVEL);
+                System.out.println("Stress count: " + stressCount);
+
 
 
                 JButton b2 = new JButton("+ 1pts", new ImageIcon("Sample.png"));
                 b2.setBounds(50, 50, 100, 20);
                 f.add(b2);
+
 
 
 
@@ -484,12 +495,18 @@ class InteractiveNov extends Stats { //WAS public
             con.add(titleNamePanel);
 
 
+
+
+
         }
         if(input.equals("sure")){
             currentLvl = currentLvl + LEVEL_UP;
             InteractiveNov myNov2 = new InteractiveNov();
             System.out.println(myNov2.printLevelPlus() + LEVEL_UP + " pts");
             System.out.println("LVL " + currentLvl);
+            ProgressBar.fill();
+
+
 
 
 
@@ -620,6 +637,8 @@ class InteractiveNov extends Stats { //WAS public
             JButton b2 = new JButton("+ 1pts", new ImageIcon("Sample.png"));
             b2.setBounds(50, 50, 100, 20);
             f.add(b2);
+
+
 
 
             System.out.println("You calmly bury your anger and stick with Maggie");
@@ -772,7 +791,8 @@ class InteractiveNov extends Stats { //WAS public
          JLabel uselabel;
 
          usergui = new JTextArea(30, 50);
-         userframe = new JFrame("TAKE A LOOK");
+         userframe = new JFrame("Password: 12345 ");
+
          uselabel = new JLabel("Here is the label");
          uselabel.setVisible(true);
          uselabel.setText("HERE is the 2nd label");
@@ -812,7 +832,7 @@ class InteractiveNov extends Stats { //WAS public
     }
 
 
-    public static void threatGrasp(){
+    public static void threatGrasp(){//2/9
         System.out.println("The Chinese man pulls you outside. He pulls out \n "
                 + "his phone and says a few words in Chinese then hangs up. \n"
                 + "Less than 30 seconds later two more large-set men walk \n "
@@ -873,7 +893,21 @@ class InteractiveNov extends Stats { //WAS public
             b2.setBounds(50, 50, 100, 20);
             f.add(b2);
 
-            signNow();
+            System.out.println("PRESS: 'options' for character progression");
+            Scanner showCompletion = new Scanner(System.in);
+            Object inputShowCompletion = scan.nextLine();
+            if(inputShowCompletion.equals("options")){
+                ProgressBar signProgressBar = new ProgressBar();//2/10
+                signProgressBar.mainBar();
+
+
+            }else if(!(inputShowCompletion.equals("options"))){
+                signNow();
+            }
+
+
+
+            //signNow was here
         }
         if(input.equals("stall")){
             System.out.println("You can't sign it over! This company is your life!");
@@ -895,14 +929,26 @@ class InteractiveNov extends Stats { //WAS public
             b2.setBounds(50, 50, 100, 20);
             f.add(b2);
 
+            ProgressBar stallProgBar = new ProgressBar();//2/10
+            stallProgBar.mainBar();
+
+
+
             stallSign();
         }
+        // DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        //            LocalDateTime now = LocalDateTime.now();
 
     }
 
 
     public static void theSetUp(){
-        System.out.println("It is now 12 am. You are in an interrogation \n "
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(dtf.format(now));
+
+        System.out.println("It is now " + dtf.format(now) + " You are in an interrogation \n "
                 + "room at the downtown precinct. You have been in the cold \n"
                 + "room for over 2 hours without a word from a detective. \n"
                 + "You look into the one-way-mirror to glimpse at your current \n"
@@ -939,6 +985,10 @@ class InteractiveNov extends Stats { //WAS public
             JButton b2 = new JButton("+ 2pts", new ImageIcon("Sample.png"));
             b2.setBounds(50, 50, 100, 20);
             f.add(b2);
+
+            ProgressBar lawyerProgBar = new ProgressBar();//2/10
+            lawyerProgBar.mainBar();
+
 
             wantLawyer();
 
@@ -984,6 +1034,10 @@ class InteractiveNov extends Stats { //WAS public
             JButton b2 = new JButton("+ 1pt", new ImageIcon("Sample.png"));
             b2.setBounds(50, 50, 100, 20);
             f.add(b2);
+
+            ProgressBar innocentProgBar = new ProgressBar();//2/10
+            innocentProgBar.mainBar();
+
 
             talkOrStop();
 
@@ -1048,6 +1102,14 @@ class InteractiveNov extends Stats { //WAS public
             f.add(b2);
 
 
+            ProgressBar here = new ProgressBar();//2/10 //YESSS!!!
+            here.mainBar();
+
+
+
+
+
+
 
 
         }
@@ -1070,6 +1132,10 @@ class InteractiveNov extends Stats { //WAS public
             JButton b2 = new JButton("+ 2pts", new ImageIcon("Sample.png"));
             b2.setBounds(50, 50, 100, 20);
             f.add(b2);
+
+            ProgressBar fightProgBar = new ProgressBar();//2/10
+            fightProgBar.mainBar();
+
 
             System.out.println("Story Branch Ended");
             System.out.println("Load most recent save (i.e. chapter)?");
@@ -1122,6 +1188,10 @@ class InteractiveNov extends Stats { //WAS public
 
         johnAlive();//End of this story line
 
+        ProgressBar johnAliveProgBar = new ProgressBar();//2/10
+        johnAliveProgBar.mainBar();
+
+
 
 
     }
@@ -1142,7 +1212,7 @@ class InteractiveNov extends Stats { //WAS public
             System.out.println(myNov2.printLevelPlus() + bonusNum + " pts");
             System.out.println("LVL " + currentLvl);
 
-            JFrame f = new JFrame("BONUS");
+            JFrame f = new JFrame("BONUS!");
             JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
             b.setBounds(100, 100, 140, 40);
             f.add(b);
@@ -1180,6 +1250,9 @@ class InteractiveNov extends Stats { //WAS public
             f.add(b2);
 
             System.out.println("You are unconscious!");
+
+            ProgressBar unconciouseProgBar = new ProgressBar();//2/10
+            unconciouseProgBar.mainBar();
 
 
         }
@@ -1224,8 +1297,8 @@ class InteractiveNov extends Stats { //WAS public
 
             currentLvl = currentLvl + bonusNum;
             InteractiveNov myNov2 = new InteractiveNov();
-            System.out.println(myNov2.printLevelPlus() + LEVEL_UP + " pts");
-            System.out.println("LVL " + bonusNum);
+            System.out.println(myNov2.printLevelPlus() + bonusNum + " pts");
+            System.out.println("LVL " + currentLvl);
 
             JFrame f = new JFrame("Bonus!");
             JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
@@ -1243,13 +1316,14 @@ class InteractiveNov extends Stats { //WAS public
             System.out.println("You want the detective to know the truth! There are \n"
                     + "dangerous people out there!");
             if(currentLvl >= 10){
-                JFrame secretFrame = new JFrame("Hidden Path Unlocked!");
+                JFrame secretFrame = new JFrame("Enter the Password");
                 JPasswordField jPasswordField = new JPasswordField();
                 jPasswordField.setBounds(100, 100, 140, 40);
                 secretFrame.add(jPasswordField);
                 secretFrame.setSize(300, 400);
                 secretFrame.setLayout(null);
                 secretFrame.setVisible(true);
+                talkOrStop();
 
 
             }else{
@@ -1343,11 +1417,43 @@ class InteractiveNov extends Stats { //WAS public
         Object input = scan.nextLine();
         if(input.equals("maggie")){
 
+            currentLvl = currentLvl + LEVEL_UP;
+            System.out.println("+ " + LEVEL_UP + "pts");
+            System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("You leveled Up!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ " + LEVEL_UP , new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
+            //EOG pop-up
+
+
+            JFrame fa = new JFrame("Story Branch Ended");
+            JButton ba = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            ba.setBounds(100, 100, 140, 40);
+            fa.add(b);
+            fa.setSize(300, 400);
+            fa.setLayout(null);
+            fa.setVisible(true);
+
+
+            JButton ba2 = new JButton("Maggie: Saved ", new ImageIcon("Sample.png"));
+            ba2.setBounds(50, 50, 100, 20);
+            fa.add(ba2);
 
 
             System.out.println("No amount of money is worth a persons life. \n"
                     + "John has already been killed. You can't live with \n"
                     + "another death.");
+
             saveMaggie(); //RELOAD
 
 
@@ -1390,7 +1496,7 @@ class InteractiveNov extends Stats { //WAS public
 
         Stats printFinalStats = new Stats();//NEW 2/8/19
         printFinalStats.savedJohn = false;
-        System.out.println(printFinalStats.isSavedJohn());
+        System.out.println("John Saved:  " + printFinalStats.isSavedJohn());
 
 
     }
@@ -1717,7 +1823,7 @@ class InteractiveNov extends Stats { //WAS public
             f.setLayout(null);
             f.setVisible(true);
 
-            JButton b2 = new JButton("Fin", new ImageIcon("Sample.png"));
+            JButton b2 = new JButton("....", new ImageIcon("Sample.png"));
             b2.setBounds(50, 50, 100, 20);
             f.add(b2);
 
@@ -1830,6 +1936,8 @@ class InteractiveNov extends Stats { //WAS public
 
 
 
+
+
         }
 
     }
@@ -1912,6 +2020,7 @@ class InteractiveNov extends Stats { //WAS public
     public static void zeroPerc(){
         System.out.println("*GAME RESULTS: John: Deceased, Maggie: Deceased, Company: Saved");
         System.out.println("Both your friends are dead! You recieved a 33% score! Be better next time!");
+
 
     }
     public static void keepGoing(){
