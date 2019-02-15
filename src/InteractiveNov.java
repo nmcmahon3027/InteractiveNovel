@@ -143,10 +143,10 @@ class InteractiveNov extends Stats { //WAS public
 
         }
         if (input == 1) {
-
+            System.out.println("Nicely done, " + name + "!");
             System.out.println("You look at your watch");
 
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd hh:mm:ss");//was HH:mm:ss
             LocalDateTime now = LocalDateTime.now();
             System.out.println(dtf.format(now));
             System.out.println("Default Level:" + DEFAULT_LEVEL);
@@ -160,7 +160,7 @@ class InteractiveNov extends Stats { //WAS public
             System.out.println("*TUTORIAL* The game will also ask \n"
                     + "you to type in the word. This is designed \n"
                     + "for player immersion. Typing the actual words \n"
-                    + "puts you in the shoes of the story's writer! \n"
+                    + "puts you in the shoes of the story's writer, so to speak. \n"
                     + "The game will prompt you with one of two words usually. \n"
                     + "Type which word you would like your character to say \n"
                     + "or action to do."
@@ -261,7 +261,7 @@ class InteractiveNov extends Stats { //WAS public
                 System.out.println("+ " + LEVEL_DOWN + "pt");
                 System.out.println("LVL " + currentLvl);
                 System.out.println("The man mumbles something with \n "
-                        + "a evil look in his eye. He goes accross \n "
+                        + "an evil look in his eye. He goes accross \n "
                         + "the train car to the other side \n "
                         + "Press ENTER to continue");
 
@@ -351,7 +351,7 @@ class InteractiveNov extends Stats { //WAS public
                     + "As you progress through the story and make decisions, \n "
                     + "you may get stressed from the situation. \n "
                     + "Make sure to consider this and don't let it get too high!");
-            System.out.println("Maggie tells you that John is acting strange. They've has \n "
+            System.out.println("Maggie tells you that John is acting strange. They've had \n "
                     + "an on again off again relationship. John told her that he's in trouble \n "
                     + "and he's been having shady phone conversations late at night. \n "
                     + "Maggie always has the good gossip on John. He's usually a secretive guy. \n "
@@ -387,6 +387,8 @@ class InteractiveNov extends Stats { //WAS public
 
         }
         System.out.println(" ");
+        System.out.println("Chapter 2: The Overseas Overseer");
+        System.out.println("");
         System.out.println("You finally arrive into the office. John, \n "
                 + "your business partner and best friend, comes rushing up to you. \n"
                 + "He seems anxious and has sweat on his brow. He asks you if I've made up my mind \n "
@@ -904,6 +906,8 @@ class InteractiveNov extends Stats { //WAS public
             }else if(!(inputShowCompletion.equals("options"))){
                 signNow();
             }
+
+            signNow();
 
 
 
@@ -1750,7 +1754,7 @@ class InteractiveNov extends Stats { //WAS public
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
         if(input.equals("accuse")){
-            System.out.println("Mills is insalted! He stops the car and says get out! \n"
+            System.out.println("Mills is insulted! He stops the car and says get out! \n"
                     + "He says good luck on your own.");
             System.out.println("Now you have no chance! John is gone, Maggie's somewhere, \n"
                     + "and now the only person who was going to help is gone! Damn!");
@@ -1778,10 +1782,54 @@ class InteractiveNov extends Stats { //WAS public
             con.add(titleNamePanel);
 
 
+            currentLvl = currentLvl + LEVEL_DOWN;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + LEVEL_DOWN + " pt");
+            System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("You leveled Up!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 1pt", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
+            ProgressBar accuseProgBar = new ProgressBar();//2/10
+            accuseProgBar.mainBar();
+
+
+
         }
         if(input.equals("dont")){
             System.out.println("You continue to Mills's place. If you shut down the mob you \n"
                     + "can end this for good.");
+
+            currentLvl = currentLvl + LEVEL_UP;
+            InteractiveNov myNov2 = new InteractiveNov();
+            System.out.println(myNov2.printLevelPlus() + LEVEL_UP + " pts");
+            System.out.println("LVL " + currentLvl);
+
+            JFrame f = new JFrame("You leveled Up!");
+            JButton b = new JButton("LVL" + currentLvl, new ImageIcon("github_image.png"));
+            b.setBounds(100, 100, 140, 40);
+            f.add(b);
+            f.setSize(300, 400);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            JButton b2 = new JButton("+ 2pts", new ImageIcon("Sample.png"));
+            b2.setBounds(50, 50, 100, 20);
+            f.add(b2);
+
+            ProgressBar dontAccuseProgBar = new ProgressBar();//2/10
+            dontAccuseProgBar.mainBar();
+
+
             millsPlace();
 
 
@@ -2077,6 +2125,7 @@ class InteractiveNov extends Stats { //WAS public
        
 
     }
+
 
 
 }

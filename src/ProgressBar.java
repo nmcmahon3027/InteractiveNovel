@@ -48,10 +48,13 @@ public class ProgressBar {
 
                 // delay the thread
                 Thread.sleep(1000);
-                i += 20;
+                i += 20;//was 20
             }
         } catch (Exception e) {
         }
+
+
+
     }
 }
 
