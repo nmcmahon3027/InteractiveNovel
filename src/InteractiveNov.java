@@ -10,7 +10,7 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 
 
 
-class InteractiveNov extends Stats { //WAS public
+class InteractiveNov extends Stats implements CharacterInfo { //WAS public
 
 
     public void paintMenu(Graphics g){
@@ -468,6 +468,10 @@ class InteractiveNov extends Stats { //WAS public
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
         if(input.equals("rethink")){
+
+            Hedger hedgerLabel = new Hedger();
+            hedgerLabel.getAllCharacterInfo();
+
             InteractiveNov myNov = new InteractiveNov();
             System.out.println(myNov.printLevelPlus() + LEVEL_DOWN + pt);
             System.out.println(levelp + currentLvl);
@@ -499,19 +503,17 @@ class InteractiveNov extends Stats { //WAS public
 
 
 
-
         }
         if(input.equals("sure")){
+
+            ConfidentLabel confidentLabel = new ConfidentLabel();
+            confidentLabel.getAllCharacterInfo();
+
             currentLvl = currentLvl + LEVEL_UP;
             InteractiveNov myNov2 = new InteractiveNov();
             System.out.println(myNov2.printLevelPlus() + LEVEL_UP + " pts");
             System.out.println("LVL " + currentLvl);
             ProgressBar.fill();
-
-
-
-
-
 
 
 
@@ -1061,6 +1063,10 @@ class InteractiveNov extends Stats { //WAS public
         Scanner scan = new Scanner(System.in);
         Object input = scan.nextLine();
         if(input.equals("leave")){
+
+            RedeemerLabel redeemerLabel = new RedeemerLabel();
+            redeemerLabel.getAllCharacterInfo();
+
             System.out.println("You and Maggie leave town");
             System.out.println("*GAME RESULTS: John: Alive, Maggie: Alive, Company:Unknown");
             System.out.println("You chose to run! Next time try to stand up for yourself!");
@@ -1119,6 +1125,9 @@ class InteractiveNov extends Stats { //WAS public
         }
         if(input.equals("fight")){
             System.out.println("You decide to see this through and fight!");
+
+            FighterLabel fighterLabel = new FighterLabel();
+            fighterLabel.getAllCharacterInfo();
 
             currentLvl = currentLvl + LEVEL_UP;
             InteractiveNov myNov2 = new InteractiveNov();
@@ -1201,7 +1210,7 @@ class InteractiveNov extends Stats { //WAS public
     }
     public static void stallSign(){
         System.out.println("NO, you yell! The man gives you a hard hit to the \n"
-                + "mouth, then a knee to the stomch. You've never felt so much pain \n"
+                + "mouth, then a knee to the stomach. You've never felt so much pain \n"
                 + "in your life");
         System.out.println("*Your STRESS is high!*");
         System.out.println("They hand you the pen and tell you to sign now.");
@@ -1235,6 +1244,8 @@ class InteractiveNov extends Stats { //WAS public
 
         }
         if(input.equals("beating")){
+            FighterLabel beatLabel = new FighterLabel();
+            beatLabel.getAllCharacterInfo();
 
             currentLvl = currentLvl + LEVEL_DOWN;
             InteractiveNov myNov2 = new InteractiveNov();
@@ -1651,6 +1662,27 @@ class InteractiveNov extends Stats { //WAS public
             titleNameLabel.setFont(titleFont);
             titleNamePanel.add(titleNameLabel);
             con.add(titleNamePanel);
+
+            //NEW as of 2/24/19
+            CharacterInfo characterInfo = new CharacterInfo() {
+                @Override
+                public void label() {
+                    System.out.println("Label: Redeemer ");
+
+                }
+
+                @Override
+                public void title() {
+                    System.out.println("Title: Bum");
+
+                }
+
+                @Override
+                public void getAllCharacterInfo() {
+
+                }
+            };
+            characterInfo.label();
 
 
 
@@ -2127,5 +2159,22 @@ class InteractiveNov extends Stats { //WAS public
     }
 
 
+    @Override
+    public void label() {
+        System.out.println("Label: Bum");
 
+    }
+
+    @Override
+    public void title() {
+        System.out.println("TITLE: Redeemer ");
+
+    }
+
+    @Override
+    public void getAllCharacterInfo() {
+        label();
+        title();
+
+    }
 }
